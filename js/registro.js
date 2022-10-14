@@ -17,6 +17,7 @@ function registro(e){
     let passValue = pass.value;
 
     if (nombreVal == '' || emailVal == '' || userVal == '' || passValue == ''){
+        crearMensaje('Verifica todos los campos', 'danger');
         return;
     }
 
@@ -34,6 +35,16 @@ function registro(e){
      pass.value = '';
 
 
-    console.log('Usuario guardado');
+     crearMensaje('Usuario registrado', 'success');
 }
 
+function crearMensaje(texto, tipo){
+    const nuevoElemento = document.createElement('div');
+    nuevoElemento.innerText = texto;
+    nuevoElemento.classList.add('alert','alert-' + tipo);
+    const divMensaje = document.getElementById('mensaje');
+    divMensaje.appendChild(nuevoElemento);
+    setTimeout(function(){
+        nuevoElemento.remove();
+    }, 2000);
+}
