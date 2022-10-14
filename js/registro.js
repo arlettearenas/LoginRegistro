@@ -20,6 +20,20 @@ function registro(e){
         return;
     }
 
-    console.log('Validando datos');
+    const usuario = {
+        nombre:nombreVal,
+        email: emailVal,
+        user: userVal,
+        pass: passValue
+    }
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+    
+     nombre.value = '';
+     email.value = '';
+     user.value = '';
+     pass.value = '';
+
+
+    console.log('Usuario guardado');
 }
 
